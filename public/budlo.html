@@ -1,0 +1,189 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+        "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <title>Gym-Visitors</title>
+    <link href="styles.css" rel="stylesheet" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+<h1 class="header">Please input user credentials</h1>
+
+
+<div id ='visitors'></div>
+
+<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+<script crossorigin src='https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js'></script>
+</body>
+</html>
+
+<script type="text/babel">
+    class GymVisitors extends React.Component{
+        state= {
+            visitors:[],
+            checked:true
+        };
+
+
+        handleUserList(){
+            this.setState(prevstate=>({
+                checked:!prevstate.checked
+            }))
+        }
+
+        createVisitor() {
+
+            let lox = function getRandomArbitrary(min, max) {
+                return Math.floor(Math.random() * (max - min) + min);
+            };
+
+            let key = lox(1,5000);
+
+            const credentials = {
+                name: this.refs.name.value,
+                surname: this.refs.surname.value,
+                subscription : this.refs.options.value,
+                key:key,
+            };
+            let monthlySubscriptionStart = new Date().toJSON().slice(0,10).replace(/-/g,'/');
+
+
+            if(credentials.subscription==='twelve'){
+                credentials.numberOfTraining = 12;
+            } else if(credentials.subscription ==='eight'){
+                credentials.numberOfTraining =8;
+            }else if(credentials.subscription ==='monthly'){
+                credentials.monthlySubscriptionStarted = monthlySubscriptionStart;
+            }
+                fetch('/api/gymvisitors', {
+                    method: 'post',
+                    headers: {
+                        'Accept': 'application/json, text/plain, */*',
+                        'Content-Type': 'application/json'
+                    }, body: JSON.stringify(credentials),
+                }).then(function (data) {
+                    return data.json();
+                }).then(json => {
+                    console.log(json);
+                    this.setState({
+                        visitors: [...this.state.visitors, json]
+                    });
+                });
+
+        }
+
+
+        deleteVisitor(id){
+            fetch(`/api/gymvisitors/${id}`,  {
+                method: 'delete',
+                    headers: {
+                    'Accept': 'application/json, text/plain, */*',
+                        'Content-Type': 'application/json'
+                }
+            }).then(function(data){
+                return data.json();
+            }).then( json =>{
+                const updatedUsers = this.state.visitors.filter(el => { return el._id != id});
+
+                console.log('update', updatedUsers)
+                this.setState({
+                    visitors:updatedUsers
+                })
+            })
+        }
+
+
+        updateVisitorSubscription(id,numbers){
+            const credentials = {};
+            credentials.numberOfTraining = numbers - 1;
+            if (credentials.numberOfTraining >= 0) {
+                fetch(`/api/gymvisitors/${id}`,{ method: 'put',
+                headers: {
+                    'Accept': 'application/json, text/plain, */*',
+                    'Content-Type': 'application/json'
+                },body:JSON.stringify(credentials),  }).then(function(data){
+                return data.json();
+            }).then(json=>{
+                const updatedUsers = this.state.visitors.map(el => { return el._id === json._id ? Object.assign({}, json) : el });
+                this.setState({
+                    visitors:updatedUsers
+                });
+            });
+            }
+        }
+
+
+        fetchUserByKey(e){
+            const key = e.target.value;
+            fetch(`/api/gymvisitors/${key}`, {
+                method: 'get',
+                headers: {
+                    'Accept': 'application/json, text/plain, */*',
+                    'Content-Type': 'application/json'
+                }
+            }).then(function (data) {
+                console.log(data)
+                return data.json();
+            }).then(json => {
+                console.log(json);
+                this.setState({
+                    visitors:  json
+                });
+            });
+
+        }
+
+        fetchAllusers(e){
+            e.preventDefault();
+            fetch('/api/gymvisitors').then(function(data){
+                return data.json();
+            }).then( json =>{
+                this.setState({
+                    visitors:json
+                })
+            })
+        }
+
+        render(){
+
+            let visitors = this.state.visitors;
+            visitors =  visitors.map( (visitor,index) => {
+                let id = visitor._id;
+                let trainingNumber = visitor.numberOfTraining;
+                return(
+
+                    <li style={{display:this.state.checked  ? 'flex':'none'}} key={index}>
+                        <span className="name"><strong>Name:</strong> {visitor.name}</span>
+                        <span className="surname"><strong>Surname:</strong> {visitor.surname}</span>
+                        <span className="birthday"><strong>Key:</strong> {visitor.key}</span>
+                        <span>{visitor.numberOfTraining ? <strong>Training Left: </strong> :<strong>Subscription Started: </strong> }{visitor.numberOfTraining ? visitor.numberOfTraining : visitor.monthlySubscriptionStarted}</span>
+                        {visitor.numberOfTraining ? <button className="smal" onClick={()=>{this.updateVisitorSubscription(id,trainingNumber)}}>Update visitor subscription</button> : null}
+                        <button  className="smal" onClick={()=>{this.deleteVisitor(id)}}>Delete visitor</button>
+                    </li>
+                )
+            });
+            return(
+                <div className="main">
+                    <div className="left"> <input ref="name" placeholder="name" type="text"/>
+                        <input ref="surname" placeholder="surname" type="text"/>
+                        <select ref="options" placeholder="Subscription type" name="" id="">
+                            <option ref="twelve" value="twelve">12 training</option>
+                            <option ref="eight" value="eight">8 training</option>
+                            <option ref="monthly" value="monthly">Monthly Unlimited</option>
+                        </select></div>
+                    <div className="right">  <button className="small" onClick={()=>{this.createVisitor()}}>Create New Subscriptioner</button>
+                        <button className="small" onClick={(e)=>{this.fetchAllusers(e)}}>Get all subscriptions</button>
+                        <button className="small" onClick={(e)=>{this.handleUserList(e)}}>Show/Hide Gym clients</button>
+                    </div>
+                    <input onChange={(e)=>{this.fetchUserByKey(e)}} className="large" placeholder="Find User" type="text"/>
+                    <ul> {visitors} </ul>
+                </div>
+            )
+        }
+
+    }
+
+
+    ReactDOM.render(<GymVisitors/>,document.getElementById('visitors'));
+</script>

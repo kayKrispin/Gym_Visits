@@ -5,13 +5,14 @@ import { store } from './redux/store';
 import { Route, Switch,BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
-ReactDOM.render((
+ReactDOM.render(
     <Provider store={store}>
          <BrowserRouter>
              <Switch>
-                 <Route path='/' component={App} />
+                 <App />
             </Switch>
         </BrowserRouter>
     </Provider>
 
-), document.getElementById('root'));
+, document.getElementById('root')
+);

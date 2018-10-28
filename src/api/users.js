@@ -1,16 +1,15 @@
 import Api from "./api";
 
-
 export const fetchUsers = () => {
-   return Api.get('/api/gymvisitors').then(data => data.json());
+   return Api.get('/api/gymvisitors/').then(res => res.data).catch(e=>e);
 };
 
 export const createGymVisitor = credentials => {
-       return Api.post('/api/gymvisitors').then(data => data.json());
+       return Api.post('/api/gymvisitors/').then(data => data.json()).catch(e=>e);
 };
 
 export const fetchUserByKay = key => {
-       return Api.get(`/api/gymvisitors/${key}`).then(data => data.json());
+       return Api.get(`/api/gymvisitors/${key}`).then(res => res.data).catch(e=>e);;
 };
 
 export const updateUserSubscription = id => {
@@ -18,5 +17,5 @@ export const updateUserSubscription = id => {
 };
 
 export const deleteUser = id => {
-       return Api.delete(`/api/gymvisitors/${id}`).then(data => data.json());
+       return Api.delete(`/api/gymvisitors/${id}`).then(res => res.data);
 };

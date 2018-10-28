@@ -20,7 +20,7 @@ const createUser = credentials => ({
     credentials
 });
 
-const fetchUserss = users => ({
+const usersFetched = users => ({
     type: GET_USERS,
     users
 });
@@ -30,9 +30,9 @@ const updateUserSubscriptions = users => ({
     users
 });
 
-const searchUser = user => ({
+const searchUser = users => ({
     type:SEARCH_USER,
-    user
+    users
 });
 
 const removeUser = id =>({
@@ -55,18 +55,16 @@ export const createSubsriptioner = credentials => dispatch =>
 
 export const users = () => dispatch => {
     dispatch(requestSend);
-    fetchUsers()
-        .then(users => {
-            dispatch(fetchUserss(users));
+    return fetchUsers().then(users =>{dispatch(usersFetched(users))
         })
-        .catch(err => {
-            dispatch(requestErrors(err));
-        });
+        .catch(err=>{dispatch(requestErrors(err)
+        )});
 };
 
 export const searchUserByKey = key => dispatch =>
-    fetchUserByKay(key).then(user => {
-        dispatch(searchUser(user));
+    fetchUserByKay(key).then(users => {
+        console.log('user ',users);
+        dispatch(searchUser(users));
     });
 
 export const updateUser = id => dispatch =>
@@ -76,5 +74,6 @@ export const updateUser = id => dispatch =>
 
 export const deleteeSubscriber = id => dispatch =>
     deleteUser(id).then(user => {
+        console.log('user ',id);
         dispatch(removeUser(id));
     });

@@ -4,15 +4,18 @@ import style from './styles.scss';
 
 const Input = ({
     type,
-    onChange,
     placeholder,
     className,
+    namee, input,
+                   onChange
 }) => (
     <input
+        {...input}
+        namee={namee}
         type={type}
-        onChange={e => onChange(e.target.value)}
         placeholder={placeholder}
         className={className}
+        onChange={(e) => onChange(e.target.value)}
     />
 );
 

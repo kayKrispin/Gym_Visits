@@ -9,8 +9,16 @@ const Select = ({
     onChange,
     searchable,
     className,
-}) => (
+    namee,
+    input,
+    type,onInputChange,
+
+
+                }) => (
     <ReactSelect
+{...input}
+        namee={namee}
+        onInputChange={onInputChange}
         placeholder={placeholder}
         options={options}
         onChange={onChange}

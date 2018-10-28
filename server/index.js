@@ -21,7 +21,6 @@ app.use(function (err,req,res,next) {
 });
 
 app.get('/',function(req, res){
-    console.log('hello there');
     res.end();
 });
 

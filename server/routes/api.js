@@ -12,9 +12,9 @@ router.get('/gymvisitors',function (req, res, next){
 });
 
 router.get('/gymvisitors/:id',function (req, res, next){
-    GymVisitor.find({key: {$regex : req.params.id}})
+    GymVisitor.find({name : {$regex : req.params.id}})
     .then(function(gymvisitors){
-        console.log(typeof(req.params.id));
+        console.log('cmo',gymvisitors);
         res.send(gymvisitors)
     }).catch(next);
 });

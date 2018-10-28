@@ -14,9 +14,9 @@ export default function user(state = defaultState, action = {}) {
         case REQUEST_ERROR:
             return Object.assign({}, state, {loading: false, error: action.err});
         case CREATE_USER:
-            return Object.assign({}, state,  {users : { ...state.users, user: action.user}});
+            return Object.assign({}, state,  { users: action.user});
         case DELETE_USER:
-            const removedUsers = this.state.visitors.filter(el => { return el._id != action.id});
+            const removedUsers = state.users.filter(el => { return el._id != action.id});
             return Object.assign({}, state, {users: removedUsers});
         case UPDATE_USER:
             const updatedUsers = state.users.map(el => { return el._id === action.user._id ? Object.assign({}, action.user) : el });
@@ -24,7 +24,7 @@ export default function user(state = defaultState, action = {}) {
         case GET_USERS:
             return Object.assign({}, state, {users: action.users});
         case SEARCH_USER:
-            return Object.assign({}, state, { users: action.user});
+            return Object.assign({}, state, { users: action.users});
         default:
             return state;
     }

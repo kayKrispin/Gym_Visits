@@ -6,17 +6,22 @@ const Input = ({
     type,
     placeholder,
     className,
-    namee, input,
-                   onChange
+    namee,
+                   input,
+                   onChange,
+    value,
+    size,
+                   onKeyDown
 }) => (
     <input
-        {...input}
-        namee={namee}
         type={type}
+        defaultValue={value}
+        size={size}
+        onChange={e =>  onChange( e.target.value)}
+        onKeyDown={onKeyDown}
         placeholder={placeholder}
         className={className}
-        onChange={(e) => onChange(e.target.value)}
-    />
+/>
 );
 
 Input.propTypes = {

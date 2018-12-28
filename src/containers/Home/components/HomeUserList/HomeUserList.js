@@ -9,6 +9,7 @@ const HomeUserList = ({
 <ul>
     {typeof usersList.map === 'function' ? (
             usersList.map((visitor, i) => {
+                {console.log('visio',visitor)}
                 return  <HomeUserItem visitor={visitor} key={visitor._id} deleteeSubscriber={deleteeSubscriber} />
                 })
             ) : (

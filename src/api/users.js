@@ -1,11 +1,11 @@
 import Api from "./api";
 
 export const fetchUsers = () => {
-   return Api.get('/api/gymvisitors/').then(res => res.data).catch(e=>e);
+   return Api.get('/api/gymvisitors').then(res => res.data).catch(e=>e);
 };
 
-export const createGymVisitor = credentials => {
-       return Api.post('/api/gymvisitors/').then(data => data.json()).catch(e=>e);
+export const createGymVisitor = (data) => {
+       return Api.post('/api/gymvisitors/',{...data}).then(data => data.json()).catch(e=>e);
 };
 
 export const fetchUserByKay = key => {

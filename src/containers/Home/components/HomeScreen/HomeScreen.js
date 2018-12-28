@@ -5,10 +5,12 @@ import Select from '../../../../components/Fields/Select';
 import Input from '../../../../components/Fields/Input';
 import * as options from './options';
 import { connect } from 'react-redux';
-import { users, deleteeSubscriber, searchUserByKey } from '../../../../actions/users';
+import { users, deleteeSubscriber, searchUserByKey, createSubsriptioner } from '../../../../actions/users';
 import HomeUserList from  '../HomeUserList';
 import Form from '../../../../components/Form';
 import { Field } from 'redux-form';
+import userSchema from './userSchema';
+import AutoForm from '../../../../components/AutoForm';
 
 
 
@@ -27,8 +29,15 @@ class Home extends Component {
         }))
     }
 
+
+    handleSub = (values) =>  {
+        this.props.createSubsriptioner(values)
+    };
+
+
     render() {
 
+        console.log('props',this.props)
         const { usersList,deleteeSubscriber,searchUserByKey } = this.props;
         const { NewUserForm } = this.state;
         const { newSubscription, getAll, showHide,  } = options.BUTTON_LABELS;
@@ -37,13 +46,11 @@ class Home extends Component {
             <div className="main">
                 <h1 className="header">Please input user credentials</h1>
             <div className="left">
-                <NewUserForm>
-                    <Field name='name' placeholder='name' component={Input}/>
-                    <Field name='surname' placeholder='surname' component={Input}/>
-                    <Field name='subscriptionType'  placeholder={'12 trainings'}
-                        options={options.HOME_PAGE_OPTIONS}
-                        className='sel' component={Select}/>
-                </NewUserForm>
+               <AutoForm
+                id='create_new_subscriber_form'
+                onSubmit={this.handleSub}
+                 schema={userSchema}
+                 />
             </div>
             <div className="right">
                 <Button name={newSubscription} onClick={ (e) => { this.fetchAllusers(e) }} />
@@ -66,4 +73,4 @@ function mapStateToProps(state){
         usersList: state.users.users,
     }
 }
-export default connect(mapStateToProps,{ users,deleteeSubscriber,searchUserByKey })(Home);
+export default connect(mapStateToProps,{ users,deleteeSubscriber,searchUserByKey,createSubsriptioner })(Home);

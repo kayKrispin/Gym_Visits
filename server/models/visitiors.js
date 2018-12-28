@@ -26,7 +26,6 @@ const GymVisitorSchema = new Schema({
     },
     key:{
         type:String,
-        required:[true,'Nedde ']
     },
     visitedTime:{
         type:String,

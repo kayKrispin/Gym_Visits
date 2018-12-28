@@ -15,6 +15,10 @@ class AutoFormContainer extends React.PureComponent {
        }
    }
 
+   componentDidMount(){
+       console.log(this.props)
+   }
+
    componentDidUpdate(nextprops){
        if(nextprops.id !== this.props.id){
            this.setState({
@@ -25,7 +29,7 @@ class AutoFormContainer extends React.PureComponent {
 
 
    generateFields(){
-       return this.props.schema.map(schemaItem=>({
+       return this.props.schema.schema.map(schemaItem=>({
            ...schemaItem,
            Field:Fields[schemaItem.field],
        }))
@@ -47,7 +51,7 @@ class AutoFormContainer extends React.PureComponent {
 
 
 AutoFormContainer.propTypes = {
-    schema : PropTypes.arrayOf(PropTypes.shape({
+    schema : PropTypes.objectOf(PropTypes.shape({
         id: PropTypes.string,
         field: PropTypes.string,
     })).isRequired,

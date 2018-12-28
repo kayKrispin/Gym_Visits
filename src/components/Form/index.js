@@ -1,23 +1,39 @@
 import React from 'react';
-import { reduxForm } from 'redux-form';
 import Form from './Form';
+import { reduxForm } from 'redux-form';
 
 class FormContainer extends React.PureComponent {
 
-    saveUser(values){
-        console.log('values',values);
-    }
+    onKeyDown = (e) => {
+        console.log(this.props)
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            this.props.handleSubmit && this.props.handleSubmit();
+        }
+    };
 
-    componentDidMount(){
-        console.log('this props', this.props)
+    handleSub = values => {
+        console.log('vallll',values)
+    };
+
+
+    generateProps(){
+        return {
+            ...this.props,
+            ...this.state,
+            onKeyDown: this.onKeyDown,
+            handleSub: this.handleSub,
+
+        }
     }
 
     render() {
-        return <Form  saveUser={this.saveUser}  {...this.props } />
+        const props = this.generateProps();
+        return <Form ref="form" {...props} />
     }
 }
 
 export default formId => reduxForm({
-    form: formId,
-    enableReinitialize: true,
+    form:formId,
+    enableReinitialize:true,
 })(FormContainer);

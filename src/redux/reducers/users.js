@@ -14,7 +14,7 @@ export default function user(state = defaultState, action = {}) {
         case REQUEST_ERROR:
             return Object.assign({}, state, {loading: false, error: action.err});
         case CREATE_USER:
-            return Object.assign({}, state,  { users: action.user});
+            return  {...state, users: [...state.users, {...action.user,},]};
         case DELETE_USER:
             const removedUsers = state.users.filter(el => { return el._id != action.id});
             return Object.assign({}, state, {users: removedUsers});

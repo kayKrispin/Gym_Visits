@@ -15,9 +15,9 @@ import { deleteUser } from "../api/users";
 
 
 
-const createUser = credentials => ({
+const createUser = user => ({
     type:CREATE_USER,
-    credentials
+    user
 });
 
 const usersFetched = users => ({
@@ -48,10 +48,22 @@ const requestErrors = err => ({
     err
 });
 
-export const createSubsriptioner = credentials => dispatch =>
-    createGymVisitor(credentials).then(user => {
-        dispatch(createUser(user));
-    });
+export const createSubsriptioner = credentials => dispatch => {
+    let monthlySubscriptionStart = new Date().toJSON().slice(0,10).replace(/-/g,'/');
+
+if(credentials.numberOfTraining.value === 'twelve'){
+    credentials.numberOfTraining = 12;
+} else if(credentials.numberOfTraining.value ==='eight'){
+    credentials.numberOfTraining = 8;
+}else if(credentials.numberOfTraining.value ==='monthly'){
+    credentials.numberOfTraining = '';
+    credentials.monthlySubscriptionStarted = monthlySubscriptionStart;
+}
+
+console.log('crendenew',credentials)
+   return createGymVisitor(credentials).then(user => {
+        dispatch(createUser(credentials));
+    })};
 
 export const users = () => dispatch => {
     dispatch(requestSend);

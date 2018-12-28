@@ -4,7 +4,7 @@ const GymVisitor = require('../models/visitiors');
 const router = express.Router();
 
 
-router.get('/gymvisitors',function (req, res, next){
+router.get('/gymvisitors/',function (req, res, next){
     console.log(req.body);
         GymVisitor.find({}).then(function(gymvisitors){
             res.send(gymvisitors)

@@ -1,30 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ReactSelect from 'react-select';
-import styles from  './styles.scss';
 
 const Select = ({
-    placeholder,
-    options,
-    onChange,
-    searchable,
-    className,
-    namee,
-    input,
-    type,onInputChange,
+                    placeholder,
+                    options,
+                    onChange,
+                    searchable,
+                    className,
+                    type,onInputChange,
 
 
                 }) => (
     <ReactSelect
-{...input}
-        namee={namee}
         onInputChange={onInputChange}
         placeholder={placeholder}
         options={options}
         onChange={onChange}
-        className={className}
+        className='selectContainer'
         searchable={searchable}
-    />
+/>
 );
 
 Select.propTypes = {

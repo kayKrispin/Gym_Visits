@@ -1,25 +1,26 @@
-import PropTypes from 'prop-types';
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Form = ({
-                  handleSubmit,
+                  onSubmit,
                   children,
-                  saveUser,
-              }) =>
-    (
-        <form  onSubmit={handleSubmit(saveUser)}>
-            {children}
-        </form>
-    );
+                  onKeyDown,
+                  handleSubmit,
+                  submitted,
+                  className,
+                  btnClassName,
+                  label,
+              }) => (
+    <form  onKeyDown={onKeyDown} onSubmit={handleSubmit} >
+    <div className={className}>
+    {children}
+    <button  type='submit' >Submit</button>
+    </div>
+    </form>
+);
 
 Form.propTypes = {
-    handleSubmit: PropTypes.func.isRequired,
-};
-
-Form.defaultProps = {
-    submitText: 'Submit',
-    customClasses: {},
-    hideOnSubmit: false,
+    handleSubmit: PropTypes.func
 };
 
 export default Form;

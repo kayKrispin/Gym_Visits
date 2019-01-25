@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Button from '../Buttons';
 
 const Form = ({
                   onSubmit,
@@ -10,11 +11,12 @@ const Form = ({
                   className,
                   btnClassName,
                   label,
+                  imageIs
               }) => (
     <form  onKeyDown={onKeyDown} onSubmit={handleSubmit} >
     <div className={className}>
     {children}
-    <button  type='submit' >Submit</button>
+    <Button  type='submit' name='Створити нового клієнта' disabled={imageIs}></Button>
     </div>
     </form>
 );

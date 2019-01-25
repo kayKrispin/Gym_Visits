@@ -182,11 +182,11 @@
                 let now = new Date();
                 let timeDifference = Math.abs(now.getTime() - lastVisit.getTime()) /36e5;
 
-
+            console.log('difference',timeDifference)
                 return(
 
                     <li style={{display:this.state.checked  ? 'flex':'none'}} key={index}>
-                        <span  className= {timeDifference>1 ? "offline":"online"} style={{marginTop:'10px'}} ><strong>Online:</strong></span>
+                        <span  className= {timeDifference>10 ? "offline":"online"} style={{marginTop:'10px'}} ><strong>Online:</strong></span>
                         <span className="name"><strong>Name:</strong> {visitor.name}</span>
                         <span className="surname"><strong>Surname:</strong> {visitor.surname}</span>
                         <span className="birthday"><strong>Key:</strong> {visitor.key}</span>

@@ -1,0 +1,204 @@
+.membershipMain{
+    background-image: url("./t4u1gzpcyuwipf4fzecfdxezrcueixf3bnt72zejlc8sdag6ilxftddet7cjxxne-.jpg");
+    background-size: cover;
+    padding-bottom: 70px;
+    padding-top: 90px;
+    background-repeat: no-repeat;
+    background-position: center;
+    text-align: center;
+
+    h1{
+      color: white;
+      letter-spacing: 2px;
+      font-size: 2.5rem;
+      font-weight: 600;
+    }
+    p{
+      color: white;
+    }
+  h2{
+  margin-top: 20px!important;
+  }
+
+    a{
+      text-decoration: none;
+    }
+    a{
+      color: white;
+      text-decoration: none;
+    }
+    a:hover{
+      color: darkorange;
+      text-decoration: none;
+    }
+}
+
+.freeBtn{
+  margin-top: 20px;
+  height: 64px;
+  padding: 0 20px;
+  color: black;
+  text-transform: uppercase;
+  font-weight: 700;
+  border: none;
+  border-radius: 4px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  background: #ffce25;
+  transition: .3s;
+}
+
+.freeBtn:hover{
+  background: #ff8c33;
+}
+
+.sendEmailSection{
+  background: white;
+}
+
+.memberShipSection{
+  background: white;
+  text-align: center;
+  padding-top: 70px;
+  padding-bottom: 70px;
+
+  h2{
+    color: #434345;
+    font-weight: 800;
+    font-size: 50px;
+  }
+  p{
+    color: #434345;
+  }
+}
+
+.priceSection{
+  margin-bottom: 100px;
+
+  i{
+    font-size: 25px;
+  }
+  strong{
+    font-size: 40px;
+  }
+  text-align: center;
+
+  h2{
+    margin-top: 20px;
+  }
+
+  hr{
+    background: lightgrey!important;
+  }
+
+  ul{
+    padding: 0;
+    hr{
+      margin: 0;
+      width: 40px;
+    }
+    li{
+      background: none;
+      border: none;
+      position: relative;
+      font-weight: 600;
+      font-size: 20px;
+    }
+    li:after{
+      display: block;
+      position: absolute;
+      height: 1px;
+      content: '';
+      background: #d9d9d9;
+      bottom: 0;
+      width: 85%;
+    }
+  }
+  hr{
+    width: 80%;
+  }
+}
+
+.topPrice{
+  border: 1px solid lightgray;
+  box-shadow: 1px 6px 18px 5px grey;hr{
+  background: #d01919!important;
+  img{
+    width: 100px;
+    height: 100px;
+  }
+}
+}
+
+
+.buyButton {
+  height: 48px;
+  background: none;
+  width: 200px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #434345;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.buyButton:hover {
+  background: #434345;
+  color: white;
+}
+
+.buyTopButton {
+  height: 48px;
+  background: #d01919;
+  width: 200px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: white;
+  cursor: pointer;
+  transition: .3s;
+  margin-bottom: 20px;
+}
+
+.buyTopButton:hover{
+  background: orange;
+  color: #434345;
+}
+
+.black{
+  color: black;
+}
+
+.lightGrey {
+  color: lightgrey;
+}
+
+.askAQuestion{
+  background-image: url("http://www.renaissancehealthandfitness.com.au/images/background-12-1920x750.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+background-size: cover;
+text-align: left;
+  font-weight: 700;
+  color: white;
+  h2{
+    padding-top: 100px;
+    font-size: 50px;
+  }
+  h3{
+    color: #ffce25;
+    margin-bottom: 20px;
+    font-size: 20px;
+  }
+  p{
+    font-weight: 400;
+  }
+}
+
+.bg-warning{
+  margin-top: 40px;
+  background: orange;
+}

@@ -1,10 +1,14 @@
-import { CREATE_USER, DELETE_USER, UPDATE_USER, GET_USERS,
-    SEARCH_USER, USER_IS_ONLINE, USER_IS_OFFLINE,REQUEST_ERROR,REQUEST_SEND  }
+import {
+    CREATE_USER, DELETE_USER, UPDATE_USER, GET_USERS,
+    SEARCH_USER, USER_IS_ONLINE, USER_IS_OFFLINE,REQUEST_ERROR,REQUEST_SEND,
+    UPDATE_FACES_DATA,
+}
     from '../../constans/actions';
 
 const defaultState = {
     loading: false,
-    users: {}
+    users: {},
+    facesDescriptors: {},
 };
 
 export default function user(state = defaultState, action = {}) {
@@ -25,6 +29,8 @@ export default function user(state = defaultState, action = {}) {
             return Object.assign({}, state, {users: action.users});
         case SEARCH_USER:
             return Object.assign({}, state, { users: action.users});
+        case UPDATE_FACES_DATA:
+            return Object.assign({}, state, { facesDescriptors: action.updatedFaceBase});
         default:
             return state;
     }

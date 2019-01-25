@@ -13,6 +13,7 @@ const Select = ({
 
                 }) => (
     <ReactSelect
+        style={{width:'200px'}}
         onInputChange={onInputChange}
         placeholder={placeholder}
         options={options}

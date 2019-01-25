@@ -1,0 +1,141 @@
+.faqSection{
+  background-image: url("./t4u1gzpcyuwipf4fzecfdxezrcueixf3bnt72zejlc8sdag6ilxftddet7cjxxne-.jpg");
+  background-size: cover;
+  padding-bottom: 70px;
+  padding-top: 90px;
+  background-repeat: no-repeat;
+  background-position: center;
+  text-align: center;
+
+  h1{
+    color: white;
+    letter-spacing: 2px;
+    font-size: 4rem;
+    font-weight: 600;
+  }
+  p{
+    color: white;
+  }
+
+  a{
+    text-decoration: none;
+  }
+  a{
+    color: white;
+    text-decoration: none;
+  }
+  a:hover{
+    color: darkorange;
+    text-decoration: none;
+  }
+}
+
+.image{
+  background-image: url("./faq-01-494x823.png");
+  background-size: cover;
+  height: 1000px;
+  margin-top: 100px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.accordion{
+}
+
+.faqQuestion {
+  h2 {
+    margin-top: 100px;
+    font-weight: 700;
+    font-size: 40px;
+    color: #434345;
+    margin-bottom: 70px;
+  }
+
+  h2:after {
+
+  display: block;
+  content: '';
+  width: 40px;
+  height: 2px;
+  background: #d01919;
+  position: absolute;
+    margin-top: 20px;
+}
+
+}
+
+.card{
+  margin-bottom: 10px;
+  border-radius: 2px;
+}
+
+.card-header{
+  transition: .3s;
+  cursor: pointer;
+  background: #e8edf6!important;
+  button{
+    text-decoration: none;
+    color: black;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+}
+
+
+
+.card-header:hover{
+  background: #ffce25!important;
+  button{
+    color:white;
+    text-decoration: none;
+  }
+
+}
+
+a:hover{
+  text-decoration: none!important;
+}
+
+.sendEmailSection{
+  background: #e8edf6;
+  text-align: center;
+  padding-top: 70px;
+  padding-bottom: 70px;
+
+  h2{
+    color: #434345;
+    font-weight: 700;
+  }
+  p{
+    color: #434345;
+  }
+  .mailBtn{
+    height: 48px;
+    background: darkorange;
+    padding: 0 20px;
+    color: black;
+    text-transform: uppercase;
+    font-weight: 600;
+    border: none;
+    border-radius: 4px;
+    letter-spacing: 1px;
+    cursor: pointer;
+  }
+}
+
+.mailBtn{
+  height: 48px;
+  background: darkorange;
+  padding: 0 20px;
+  color: black;
+  text-transform: uppercase;
+  font-weight: 600;
+  border: none;
+  border-radius: 4px;
+  transition: .3s;
+}
+
+.mailBtn:hover{
+  background: darkgoldenrod;
+}

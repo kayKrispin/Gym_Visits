@@ -68,7 +68,7 @@ address:hover{
 }
 
 
-.mainPicture {
+.startSection {
   background-image: url("./Gym-in-pimpri-chinchwad-1.jpg");
   background-size: cover;
   padding-bottom: 330px;
@@ -149,7 +149,7 @@ ul {
     background-color: none;
     border: none;
     background: none;
-    font-size: 24px;
+    font-size: 18px;
     text-transform: uppercase;
     font-weight: 600;
 
@@ -440,7 +440,7 @@ position: relative;
 
 }
 
-.innerBox{    padding: 34px;
+.innerBox{    padding: 40px;
   border: 1px solid lightgray;
 }
 
@@ -921,6 +921,7 @@ transition: .3s;
   background:linear-gradient(to bottom, rgba(0,0,0,0) 20%, rgba(0,0,0,1)), url('https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/701/articles/2016/07/21s-biceps-1488909232.jpg');
   background-size: cover;
   height: 321px;
+  margin-bottom: 30px;
 
   strong{
     color: darkorange;
@@ -1060,7 +1061,6 @@ transition: .3s;
 .blogDate{
   color: white;
   position: absolute;
-  left: 25%;
   top: 84%;
 }
 
@@ -1293,12 +1293,14 @@ footer{
   .container{
     max-width: 1200px!important;
   }
-
+  .blogDate{
+    left: 25%;
+  }
 }
 
 @media (max-width: 900px) {
   .container{
-    max-width: 1200px!important;
+    max-width: 1300px!important;
   }
   .reviewSection{
     img{
@@ -1330,8 +1332,17 @@ footer{
     justify-content: center;
     margin-top: 10px;
   }
+
+  .blogRef1{
+    left:0;
+  }
+  .blogRef{
+    left:30%;
+  }
 }
   .mainSlider{
+    margin-left: 0!important;
+    width: 100%;
     .ant-carousel{
       height: 100%;
       width: 100%;
@@ -1344,4 +1355,40 @@ footer{
 
 .martialL{
   left: 20%!important;
+}
+
+.footerInput{
+  width: 150px!important;
+  border-radius: 0;
+}
+
+.footerSpan{
+  padding: 11.6px;
+  background: #262627;
+}
+
+.subscribe {
+  height: 48px;
+  background: #d01919;
+  border: none;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 12px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.subscribe:hover{
+  background: darkorange;
+  color: black;
+}
+
+.subscribeContainer{
+  display: flex;
+  align-items: center;
+}
+
+.mostPopular{
+  width: 70px;
+  height: 70px;
 }

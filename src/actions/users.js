@@ -6,12 +6,15 @@ import {
     SEARCH_USER,
     REQUEST_SEND,
     REQUEST_ERROR,
+    UPDATE_FACES_DATA,
 } from "../constans/actions";
 import { fetchUsers } from "../api/users";
 import { createGymVisitor } from "../api/users";
 import { fetchUserByKay } from "../api/users";
 import { updateUserSubscription } from "../api/users";
 import { deleteUser } from "../api/users";
+import { updateFaces } from "../api/face";
+
 
 
 
@@ -25,9 +28,9 @@ const usersFetched = users => ({
     users
 });
 
-const updateUserSubscriptions = users => ({
+const updateUserSubscriptions = user => ({
     type:UPDATE_USER,
-    users
+    user
 });
 
 const searchUser = users => ({
@@ -48,21 +51,29 @@ const requestErrors = err => ({
     err
 });
 
-export const createSubsriptioner = credentials => dispatch => {
-    let monthlySubscriptionStart = new Date().toJSON().slice(0,10).replace(/-/g,'/');
+const updateFaceBase = updatedFaceBase => ({
+   type:UPDATE_FACES_DATA,
+    updatedFaceBase
+});
 
+export const createSubsriptioner = (credentials,avatar) => dispatch => {
+    console.log('avata', avatar)
+    let monthlySubscriptionStart = new Date().toJSON().slice(0,10).replace(/-/g,'/');
+    credentials.imageUrl = avatar;
 if(credentials.numberOfTraining.value === 'twelve'){
     credentials.numberOfTraining = 12;
+    credentials.monthlySubscriptionStarted = null
 } else if(credentials.numberOfTraining.value ==='eight'){
     credentials.numberOfTraining = 8;
+    credentials.monthlySubscriptionStarted = null;
 }else if(credentials.numberOfTraining.value ==='monthly'){
-    credentials.numberOfTraining = '';
+    credentials.numberOfTraining = null;
     credentials.monthlySubscriptionStarted = monthlySubscriptionStart;
 }
 
-console.log('crendenew',credentials)
-   return createGymVisitor(credentials).then(user => {
-        dispatch(createUser(credentials));
+   return createGymVisitor(credentials,avatar).then(user => {
+       console.log('user',user)
+        dispatch(createUser(user));
     })};
 
 export const users = () => dispatch => {
@@ -75,17 +86,31 @@ export const users = () => dispatch => {
 
 export const searchUserByKey = key => dispatch =>
     fetchUserByKay(key).then(users => {
-        console.log('user ',users);
         dispatch(searchUser(users));
     });
 
-export const updateUser = id => dispatch =>
-    updateUserSubscription(id).then(user => {
-        dispatch(updateUserSubscriptions(user));
-    });
+export const updateUser = (id, numberOftraining )=> dispatch => {
+    let visitedTime = new Date();
+    const credentials = {};
+    credentials.numberOfTraining = numberOftraining - 1;
+    credentials.visitedTime = visitedTime;
+    credentials.online  = true;
+
+
+    if (credentials.numberOfTraining >= 0) {
+        return   updateUserSubscription(id,credentials).then(user => {
+            dispatch(updateUserSubscriptions(user));
+        });
+    }
+};
 
 export const deleteeSubscriber = id => dispatch =>
     deleteUser(id).then(user => {
-        console.log('user ',id);
         dispatch(removeUser(id));
     });
+
+
+export const updateFace = newFace => dispatch =>
+     updateFaces(newFace).then(faces => {
+        dispatch(updateFaceBase(faces))
+     });

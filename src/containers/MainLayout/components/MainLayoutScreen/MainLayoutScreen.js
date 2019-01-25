@@ -2,6 +2,8 @@ import React from 'react';
 import styles from './styles.scss';
 import { BackTop } from 'antd';
 import { Carousel } from 'antd';
+import { Link } from 'react-router-dom';
+import Header from '../../../../components/Header';
 
 
 
@@ -11,60 +13,9 @@ const MainLayoutScreen = ({
                               getRef,settings
 }) => (
     <div>
-    <div id ='preNavbar' className='background'>
-        <div className='row rowUpperHeader'>
-    <div className='col-md-4'>
-        <div>
-            <address>
-                <i class="fas fa-mobile-alt mobile"></i>
-                <span className='mobileP' >+38-095-0053-294 </span>
-            </address>
-        </div>
-    </div>
-    <div className='col-md-4'>
-        <p className='addressP'> <i class="fas fa-map-marker"></i> <span className='location'>ІФ вул.Незалежності 164</span></p>
-    </div>
-    <div className='col-md-4 '>
-         <div className='lastUpper'>
-                <i class="fab fa-facebook-f mobile"></i>
-                <i class="fab fa-instagram mobile"></i>
-                <i class="fab fa-youtube mobile"></i>
-        </div>
-    </div>
-        </div>
-    </div>
-    <div>
-    <nav id="navbar" class="navbar navbar-expand-lg navbar-dark  static-top navMain">
-    <div class="container">
-    <a class="navbar-brand" href="#">
-        <p className='logo'><span className='amber'>Amber</span> <span className='gym'>GYM</span></p>
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarResponsive">
-    <ul class="navbar-nav ml-auto">
-    <li class="nav-item active">
-    <a class="nav-link active" href="#">Home
-    <span class="sr-only">(current)</span>
-    </a>
-    </li>
-    <li class="nav-item">
-    <a class="nav-link" href="#">About</a>
-    </li>
-    <li class="nav-item">
-    <a class="nav-link" href="#">Services</a>
-    </li>
-    <li class="nav-item">
-    <a class="nav-link" href="#">Contact</a>
-    </li>
-    </ul>
-    </div>
-    </div>
-    </nav>
-</div>
+       <Header/>
 
-    <div className='mainPicture w3-container'>
+    <section className='startSection'>
         <div className='container'>
             <div className='row'>
                 <div className='col-md-12 animatePhrase'>
@@ -74,8 +25,9 @@ const MainLayoutScreen = ({
                 </div>
             </div>
         </div>
-    </div>
-    <div className='container'>
+    </section>
+
+    <section className='container wellcomSection'>
     <div  ref={ (ref) => { return getRef(ref)} }  className='row wellcomeRow'>
         <div className='col-md-12 wellcomeSection'>
             <div  id="wellcomeUp" className='wellcomeUp'>
@@ -86,21 +38,21 @@ const MainLayoutScreen = ({
         </div>
         <div className='col-md-4 box textCenter box-icon box-icon-bordered'>
             <div  className='innerBox'>
-                <span className='wellcomeIcons'><i class="fas fa-users"></i></span>
+                <span className='wellcomeIcons'><i className="fas fa-users"></i></span>
             <h4 className='wellcomeHeaders'>Кваліфіковані Тренери</h4>
             <span>Every client of Intense has a personalized program of training and nutrition.</span>
             </div>
           </div>
     <div className='col-md-4 box textCenter marginLeft'>
     <div  className='innerBox'>
-            <span className='wellcomeIcons'><i class="fas fa-thumbs-up"></i></span>
+            <span className='wellcomeIcons'><i className="fas fa-thumbs-up"></i></span>
         <h4 className='wellcomeHeaders'>Індивідуальний Підхід</h4>
         <span>Every client of Intense has a personalized program of training and nutrition.</span>
     </div>
     </div>
     <div  className='col-md-4 box textCenter marginLeft'>
     <div className='innerBox'>
-    <span className='wellcomeIcons'><i class="fas fa-dumbbell"></i></span>
+    <span className='wellcomeIcons'><i className="fas fa-dumbbell"></i></span>
 <h4 className='wellcomeHeaders'>Спортивне Обладнання</h4>
 <span>Every client of Intense has a personalized program of training and nutrition.</span>
     </div>
@@ -108,8 +60,8 @@ const MainLayoutScreen = ({
         <BackTop />
 </div>
     </div>
-    </div>
-        <div className='row mainSlider'>
+    </section>
+        <section className='mainSlider'>
             <Carousel
 {...settings}
 
@@ -137,8 +89,9 @@ const MainLayoutScreen = ({
     <button>Перше заняття безкоштовне</button>
 </div>
 </Carousel>
-    </div>
-    <div className='couches'>
+    </section>
+
+    <section className='couches'>
     <div className='container'>
     <div className='row'>
         <div className='col-md-12'>
@@ -146,18 +99,18 @@ const MainLayoutScreen = ({
     <hr className=' divider bg-danger '></hr></div>
         <div className='col-md-3 col-sm-6'>
         <div className='trainersContainerD'>
-                <div className='socialCont left'><i class="fab fa-facebook-f"></i></div>
-                <div className='socialCont center' ><i class="fab fa-instagram"></i></div>
-                <div className='socialCont right'><i class="fab fa-google"></i></div>
+                <div className='socialCont left'><i className="fab fa-facebook-f"></i></div>
+                <div className='socialCont center' ><i className="fab fa-instagram"></i></div>
+                <div className='socialCont right'><i className="fab fa-google"></i></div>
         </div>
     <h3>Дмітрій <span>Бодібілдінг</span></h3>
 <p>Мощний бодібілдер.Секретна техніка смальця буде вам розказана</p>
         </div>
 <div className='col-md-3 col-sm-6'>
     <div className='trainersContainerT'>
-        <div className='socialCont left'><i class="fab fa-facebook-f"></i></div>
-        <div className='socialCont center' ><i class="fab fa-instagram"></i></div>
-        <div className='socialCont right'><i class="fab fa-google"></i></div>
+        <div className='socialCont left'><i className="fab fa-facebook-f"></i></div>
+        <div className='socialCont center' ><i className="fab fa-instagram"></i></div>
+        <div className='socialCont right'><i className="fab fa-google"></i></div>
     </div>
     <h3>Циган <span>Турнікмен</span></h3>
 <p>Ви зможете опанувати палташок на 10 стійку ворона та інше</p>
@@ -165,18 +118,18 @@ const MainLayoutScreen = ({
 
 <div className='col-md-3 col-sm-6 vladislavPhoto'>
     <div className='trainersContainer'>
-    <div className='socialCont left'><i class="fab fa-facebook-f"></i></div>
-<div className='socialCont center' ><i class="fab fa-instagram"></i></div>
-<div className='socialCont right'><i class="fab fa-google"></i></div>
+    <div className='socialCont left'><i className="fab fa-facebook-f"></i></div>
+<div className='socialCont center' ><i className="fab fa-instagram"></i></div>
+<div className='socialCont right'><i className="fab fa-google"></i></div>
     </div>
     <h3>Бладислав <span>Паверліфтер</span></h3>
 <p>Бладислав завітав до нас з самої Росії і поділиться секретами спражнього Грубого Москаля</p>
 </div>
 <div className='col-md-3 col-sm-6'>
     <div className='trainersContainerV'>
-    <div className='socialCont left'><i class="fab fa-facebook-f"></i></div>
-<div className='socialCont center' ><i class="fab fa-instagram"></i></div>
-<div className='socialCont right'><i class="fab fa-google"></i></div>
+    <div className='socialCont left'><i className="fab fa-facebook-f"></i></div>
+<div className='socialCont center' ><i className="fab fa-instagram"></i></div>
+<div className='socialCont right'><i className="fab fa-google"></i></div>
     </div>
     <h3>Брат <span>Бойові Мистецтва</span></h3>
 <p>Бем-бем </p>
@@ -185,8 +138,8 @@ const MainLayoutScreen = ({
 
 </div>
     </div>
-        </div>
-    <div className='blogSection'>
+        </section>
+    <section className='blogSection'>
         <div className='container'>
          <div className='row'>
             <div className='col-md-12'>
@@ -199,7 +152,7 @@ const MainLayoutScreen = ({
                     <span className='blogRef1'>Естетика</span>
                     <h3 className='blogTitle'> Помпуй бітку </h3>
                     <span className='blogFrom'>від <strong>Братів</strong></span>
-                    <span className='blogDate'> <i class="fas fa-clock"></i><strong>2 дня назад</strong></span>
+                    <span className='blogDate'> <i className="fas fa-clock"></i><strong>2 дня назад</strong></span>
                 </div>
             </div>
             <div className='col-md-6'>
@@ -208,7 +161,7 @@ const MainLayoutScreen = ({
                     <span className='blogRef1'>Естетика</span>
                     <h3 className='blogTitle'> Стиль срущого пса</h3>
                     <span className='blogFrom'>від <strong>Блади</strong></span>
-                    <span style={{marginLeft:"10px"}} className='blogDate'> <i class="fas fa-clock"></i><strong>2 дня назад</strong></span>
+                    <span style={{marginLeft:"10px"}} className='blogDate'> <i className="fas fa-clock"></i><strong>2 дня назад</strong></span>
                 </div>
             </div>
             <div className='col-md-6 '>
@@ -217,16 +170,16 @@ const MainLayoutScreen = ({
                     <span className='blogRef1'>Естетика</span>
                     <h3 className='blogTitle'> Калестетика як вона є</h3>
                     <span className='blogFrom'>від <strong>Цигана</strong></span>
-                    <span className='blogDate'> <i class="fas fa-clock"></i><strong>2 дня назад</strong></span>
+                    <span className='blogDate'> <i className="fas fa-clock"></i><strong>2 дня назад</strong></span>
                 </div>
             </div>
             <div className='col-md-6'>
                 <div className='blogPostRonnie'>
                     <span className='blogRef'>Бодібілдінг</span>
                     <span className='blogRef1'>Естетика</span>
-                    <h3 className='blogTitle'> Поради від Лайт-Вейт Ронні</h3>
+                    <h3 className='blogTitle'> Поради Лайт-Вейт Ронні</h3>
                     <span className='blogFrom'>від <strong>Дмітрія</strong></span>
-                    <span className='blogDate'> <i class="fas fa-clock"></i><strong>2 дня назад</strong></span>
+                    <span className='blogDate'> <i className="fas fa-clock"></i><strong>2 дня назад</strong></span>
                 </div>
             </div>
             <div className='col-md-12'>
@@ -234,8 +187,9 @@ const MainLayoutScreen = ({
             </div>
           </div>
         </div>
-    </div>
-    <div className='reviewSection'>
+    </section>
+
+    <section className='reviewSection'>
         <div className='container'>
             <div className='row'>
                 <div className='col-md-12'>
@@ -271,16 +225,18 @@ const MainLayoutScreen = ({
                 </div>
             </div>
         </div>
-    </div>
+    </section>
+
+
     <footer>
         <div className='container footerContainer'>
             <div className='row'>
                 <div className='col-md-3'>
                     <p className='logo logoFooter'><span className='amber'>Amber</span> <span className='gym'>Gym</span></p>
                     <div className='socCont'>
-                            <div style={{paddingLeft:'20px'}} className='socialContFooter facebook '><i class="fab fa-facebook-f"></i></div>
-                            <div className='socialContFooter insta  ml' ><i class="fab fa-instagram"></i></div>
-                            <div className='socialContFooter google  ml'><i class="fab fa-google"></i></div>
+                            <div style={{paddingLeft:'20px'}} className='socialContFooter facebook '><i className="fab fa-facebook-f"></i></div>
+                            <div className='socialContFooter insta  ml' ><i className="fab fa-instagram"></i></div>
+                            <div className='socialContFooter google  ml'><i className="fab fa-google"></i></div>
                     </div>
                     <p className='rights'>Amber Gym © 2018 . Всі права захищені</p>
                 </div>
@@ -288,12 +244,12 @@ const MainLayoutScreen = ({
                          <p>Стрічка Фейсбука</p>
                         <div className='row faceRow'>
                             <div className='col-md-12 mb '>
-                                <span><i class="fab fa-facebook-f"></i>Dec/21/2018</span>
+                                <span><i className="fab fa-facebook-f"></i>Dec/21/2018</span>
                                 <p>Display Posts in Lists, Tiles, Grid, Slider, Carousel, Ticker, and more with Elementor Plugins… </p>
                                 <strong>twitter.com/i/web/status/1…@templatemonster</strong>
                             </div>
                             <div className='col-md-12'>
-                                <span><i class="fab fa-facebook-f"></i>Dec/21/2018</span>
+                                <span><i className="fab fa-facebook-f"></i>Dec/21/2018</span>
                                 <p>Display Posts in Lists, Tiles, Grid, Slider, Carousel, Ticker, and more with Elementor Plugins… </p>
                                 <strong>twitter.com/i/web/status/1…@templatemonster</strong>
 
@@ -318,6 +274,7 @@ const MainLayoutScreen = ({
                     <div className='col-md-3 newsRow'>
                         <p> Новини</p>
     <p className='newsP'>Keep up with our always upcoming product features and technologies. Enter your e-mail and subscribe to our newsletter.</p>
+                        <div className='subscribeContainer'> <span className='footerSpan'><i className="far fa-envelope"></i></span><input className='footerInput' /><button className='subscribe'>Підписка</button></div>
 
 </div>
             </div>

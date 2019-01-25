@@ -1,11 +1,12 @@
 const express = require('express');
 const GymVisitor = require('../models/visitiors');
-
+const JSON_PROFILE = require('../../src/descriptors/visiters.json');
 const router = express.Router();
+const fs = require('fs');
+
 
 
 router.get('/gymvisitors/',function (req, res, next){
-    console.log(req.body);
         GymVisitor.find({}).then(function(gymvisitors){
             res.send(gymvisitors)
         }).catch(next);
@@ -14,7 +15,6 @@ router.get('/gymvisitors/',function (req, res, next){
 router.get('/gymvisitors/:id',function (req, res, next){
     GymVisitor.find({name : {$regex : req.params.id}})
     .then(function(gymvisitors){
-        console.log('cmo',gymvisitors);
         res.send(gymvisitors)
     }).catch(next);
 });
@@ -47,7 +47,6 @@ router.post('/gymvisitors',function (req, res, next){
     console.log(req.body)
     GymVisitor.create(req.body).then(function (gymvisitor) {
        res.send(gymvisitor);
-       console.log('i got from base',gymvisitor)
     }).catch(next);
 });
 
@@ -63,9 +62,14 @@ router.put('/gymvisitors/:id',function (req, res, next){
 
 router.delete('/gymvisitors/:id',function (req, res, next){
     GymVisitor.findByIdAndRemove({_id:req.params.id}).then(function(gymvisitor){
-       console.log(gymvisitor);
     });
     res.send({ kaec:'DELETE' })
+});
+
+
+router.post('/gymvisitors/faces',function (req, res, next){
+    console.log('faces',req.body);
+    fs.writeFile('src/descriptors/newVisitors.json',  JSON.stringify(req.body))
 });
 
 module.exports = router;

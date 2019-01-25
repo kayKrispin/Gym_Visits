@@ -1,0 +1,68 @@
+.contactUsSection {
+  margin-top: 100px;
+
+  input{
+    width: 100%;
+  }
+
+  h3{
+    color: #d01919;
+    margin-bottom: 20px;
+    font-size: 23px;
+    font-weight: 700;
+  }
+  h2{
+    margin-bottom: 50px;
+  }
+  p{
+    margin-bottom: 50px;
+  }
+  margin-bottom: 50px;
+}
+
+.contactUnderscore{
+  position: relative;
+  font-weight: 700;
+}
+
+.contactUnderscore:after{
+  position: absolute;
+  content: '';
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: #d01919;
+  margin-top: 20px;
+}
+
+.marginTop{
+  margin-top: 50px;
+}
+
+.msgTextarea{
+  width: 100%;
+  margin-top: 50px;
+  border-radius: 5px;
+}
+
+.paddingLeft{
+  padding: 0 100px!important;
+}
+
+@media (max-width: 900px) {
+  .paddingLeft{
+    padding: 0!important;
+  }
+}
+
+.contactsBtn{
+  margin-top: 20px;
+  button{
+    width: 150px;
+
+  }
+
+  .contactBtn{
+    margin-left: 15px;
+  }
+}

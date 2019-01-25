@@ -5,10 +5,11 @@ import './styles.scss'
 const Button = ({
     name,
     onClick,
+                    disabled
 }) => {
 
     return (
-        <button onClick={onClick} className="small">
+        <button onClick={onClick} disabled={disabled} className="small">
             {name}
         </button>
     );

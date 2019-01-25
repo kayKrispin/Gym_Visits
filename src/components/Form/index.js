@@ -29,7 +29,7 @@ class FormContainer extends React.PureComponent {
 
     render() {
         const props = this.generateProps();
-        return <Form ref="form" {...props} />
+        return <Form  {...props} />
     }
 }
 

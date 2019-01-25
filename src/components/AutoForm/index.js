@@ -15,10 +15,6 @@ class AutoFormContainer extends React.PureComponent {
        }
    }
 
-   componentDidMount(){
-       console.log(this.props)
-   }
-
    componentDidUpdate(nextprops){
        if(nextprops.id !== this.props.id){
            this.setState({
@@ -50,11 +46,6 @@ class AutoFormContainer extends React.PureComponent {
 }
 
 
-AutoFormContainer.propTypes = {
-    schema : PropTypes.objectOf(PropTypes.shape({
-        id: PropTypes.string,
-        field: PropTypes.string,
-    })).isRequired,
-};
+
 
 export default AutoFormContainer;

@@ -1,0 +1,333 @@
+.background{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding: 17px;
+  color: white;
+  background: #d01919;
+  box-shadow: inset 0px -5px 73px rgba(0,0,0,0.6);
+  align-items: center;
+  address{
+    margin: 0;
+  }
+  p{margin: 0}
+  h3{
+    margin: 0;
+  }
+  margin: 0;
+
+
+  .mobile{
+    margin-left: 20px;
+    font-size: 23px;
+    cursor: pointer;
+  }
+
+  .mobile:hover{
+    color: orange;
+  }
+}
+
+.location{
+  margin-left: 10px;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 3px;
+  cursor: pointer;
+}
+
+.addressP:hover{
+  color: orange;
+}
+
+.location:hover{
+  color: orange;
+}
+
+.mobileP{
+  margin-left: 10px;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.mobileS {
+
+}
+
+address:hover{
+  color: orange;
+  cursor: pointer;
+}
+
+
+.startSection {
+  background-image: url("./Gym-in-pimpri-chinchwad-1.jpg");
+  background-size: cover;
+  padding-bottom: 330px;
+  padding-top: 200px;
+  background-repeat: no-repeat;
+  background-position: center;
+  text-align: center;
+
+  .animatePhrase {
+    animation: myMove 2s; /* Safari, Chrome and Opera > 12.1 */
+  }
+
+}
+
+.navMain {
+  position: absolute;
+
+};
+
+ul {
+
+  li{
+    a{
+      transition: .3s;
+    }
+  }
+  li:hover{
+    a{
+      color: orange!important;
+    }
+  }
+}
+
+.logo {
+  margin: 0;
+}
+
+.amber{
+  font-size: 30px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+}
+
+.gym{
+  color: orange;
+}
+
+.logo{
+  position: relative;
+}
+
+.logo:before{
+  display: block;
+  content: '';
+  position: absolute;
+  height: 14px;
+  width: 14px;
+  /* color: red; */
+  /* background: red; */
+  border: 4px solid;
+  border-left-color: orange;
+  border-top-color: orange;
+  border-right: none;
+  color: none;
+  border-bottom: none;
+  left: -10px;
+}
+
+
+.navMain{
+  position: absolute;
+  width: 100%;
+  background: none!important;
+  padding-top: 10px;
+
+  li{
+    color: white!important;
+    background-color: none;
+    border: none;
+    background: none;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: 600;
+
+    .active{
+      color: orange!important;
+    }
+
+    li:hover{
+
+    }
+  }
+  a{
+    color: white!important;
+  }
+}
+
+.rowUpperHeader{
+  align-items: center;
+  width: 100%;
+}
+
+.lastUpper{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.navMain{
+  position: absolute!important;
+  margin-top: 20px;
+}
+
+.noPain{
+  text-align: center;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 70px;
+  font-style: italic;
+  margin-bottom: 20px;
+  font-weight: 900;
+}
+
+.niceBody{
+  text-align: center;
+  color: white;
+  margin-top: 10px;
+  margin-bottom: 40px;
+}
+
+.startBtn {
+  margin-top: 20px;
+  /* padding: 20px 86px; */
+  height: 58px;
+  width: 220px;
+  border-radius: 4px;
+  background: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 29px;
+  font-weight: 700;
+  color: white;
+  transition: .5s;
+  position: relative;
+  border: none;
+  text-align: center;
+}
+
+.centerBtnWrapper a:before{
+  content: '';
+  display: block;
+  position: absolute;
+  border-radius: 50%;
+  background:orange ;
+  top: 50%;
+  transition: .3s;
+  width: 25px;
+  height: 25px;
+  transform: translateY(-50%);
+  overflow: hidden;
+  right: 300px;
+  opacity: 0;
+  z-index: -1;
+}
+
+.centerBtnWrapper a:after {
+  content: '';
+  display: block;
+  position: absolute;
+  border-radius: 50%;
+  background:orange ;
+  top: 50%;
+  transition: .3s;
+  width: 25px;
+  height: 25px;
+  transform: translateY(-50%);
+  overflow: hidden;
+  left: 300px;
+  opacity: 0;
+  z-index: -1;
+
+
+
+}
+
+
+
+.centerBtnWrapper:hover span{
+  opacity: 1;
+  transform: scale(1);
+  transition-delay: .3s;
+}
+
+.centerBtnWrapper a:before{
+  left: -7rem;
+  box-shadow: -100px 0 0 orange ;
+}
+.centerBtnWrapper a:after{
+  right: 0;
+  box-shadow: 100px 0 0 orange ;
+}
+
+.centerBtnWrapper a:hover:before {
+  left: 5.6rem;
+  opacity: 1;
+  box-shadow: 40px 0 0 orange ;
+
+}
+
+
+.centerBtnWrapper a:hover:after {
+  left: 130px;
+  opacity: 1;
+  box-shadow: 40px 0 0 orange ;
+}
+
+
+.active{
+  color:orange!important;
+}
+
+.centerBtnWrapper{
+  position: absolute;
+  left: 50%;
+  top: 120%;
+  transform: translate(-50%,-50%);
+}
+
+.centerBtnWrapper{
+  a{
+    margin-top: 20px;
+    padding: 20px 86px;
+    height: 58px;
+    width: 220px;
+    border-radius: 4px;
+    background: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 29px;
+    font-weight: 700;
+    color: white!important;
+    transition: .5s;
+    position: relative;
+    border: none;
+    cursor: pointer;
+  }
+  span{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: orange;
+    z-index: -2;
+    transform: scale(0);
+    transition: .3s;
+    opacity: 0;
+    border-radius: 5px;
+    box-shadow: 0 10px 15px rgba(0,0,0,.5);
+  }
+}
+
+.centerBtnWrapper {
+  a:hover{
+    z-index: 3;
+    transition: .3s;
+    color: black;
+  }
+}

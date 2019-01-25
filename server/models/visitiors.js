@@ -33,6 +33,9 @@ const GymVisitorSchema = new Schema({
     online:{
         type:Boolean,
         default:false
+    },
+    imageUrl:{
+        type:String,
     }
     }
 

@@ -6,6 +6,6 @@ export const  HOME_PAGE_OPTIONS = [
 
 export const BUTTON_LABELS = {
      'newSubscription' : 'Create New Subscriptioner',
-     'getAll' : 'Get all subscriptions',
-     'showHide' : 'Show/Hide Gym clients',
+     'getAll' : 'Витягнути усіх юзерів',
+     'showHide' : 'Показати/приховати клієнтів',
 };

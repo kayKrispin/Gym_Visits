@@ -1,0 +1,30 @@
+.online::after{
+  content: '';
+  display: block;
+  position: relative;
+  background: yellowgreen;
+  width: 10px;
+  height: 10px;
+  top: -16px;
+  left: 62px;
+  border-radius: 50%;
+}
+
+.offline::after{
+  content: '';
+  display: block;
+  position: relative;
+  background: black;
+  width: 10px;
+  height: 10px;
+  top: -16px;
+  left: 62px;
+  border-radius: 50%;
+}
+
+.span-cont{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-around;
+}

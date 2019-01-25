@@ -11,9 +11,11 @@ const AutoForm = ({
                       className,
                       btnClassName,
     label,
+                      imageIs,
 }) => (
 
     <DynamicForm
+        imageIs={imageIs}
         label={label}
         className={className}
         btnClassName={btnClassName}
